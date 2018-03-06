@@ -4,7 +4,7 @@
 # GDtDLayoutSwitcher (GNOME Dash to {Dock,Panel} Layout Switcher) by github.com/BobyMCbobs
 #
 # A simple program to switch between 'dash to dock' and 'dash to panel'
-
+# v1.0.1
 # Licensed under GPL v3
 
 disable_argos_demo_script=1
@@ -40,19 +40,20 @@ output=""
 if [ ! -d /usr/share/gnome-shell/extensions/$extension1 ] && [ ! -d $HOME/.local/share/gnome-shell/extensions/$extension1 ]
 then
 	output="1"
-	echo "'$extension1' is not installed -- Click here to install it. | terminal=false bash='echo Downloading Dash to Dock... > $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Dock.sh; echo --- >> $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Dock.sh; chmod +x $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Dock.sh ;if [ ! -d $HOME/.local/share/gnome-shell/extensions ]; then mkdir -p $HOME/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com; fi; cd /tmp; wget -O - https://extensions.gnome.org/review/download/7799.shell-extension.zip > dash-to-dock.zip; unzip dash-to-dock.zip -d $HOME/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com; rm /tmp/dash-to-dock.zip; cd; rm $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Dock.sh'"
+	echo "'$extension1' is not installed -- Click here to install it. | terminal=false bash='echo Downloading Dash to Dock... > $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Dock.sh; echo --- >> $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Dock.sh; chmod +x $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Dock.sh ;if [ ! -d $HOME/.local/share/gnome-shell/extensions ]; then mkdir -p $HOME/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com; fi; wget https://extensions.gnome.org/extension-data/dash-to-dock%40micxgx.gmail.com.v62.shell-extension.zip -P /tmp/; unzip /tmp/dash-to-dock* -d $HOME/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com; rm /tmp/dash-to-dock*; rm $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Dock.sh'"
 fi
 
 if [ ! -d /usr/share/gnome-shell/extensions/$extension2 ] && [ ! -d $HOME/.local/share/gnome-shell/extensions/$extension2 ]
 then
 	output="$output 2"
-	echo "'$extension2' is not installed -- Click here to install it. | terminal=false bash='echo Downloading Dash to Dock... > $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Panel.sh; echo --- >> $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Panel.sh; chmod -x $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Panel.sh; if [ ! -d $HOME/.local/share/gnome-shell/extensions ]; then mkdir -p $HOME/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com; fi; cd /tmp; wget -O - https://github.com/jderose9/dash-to-panel/archive/v12.zip > dash-to-panel.zip; unzip dash-to-panel.zip -d $HOME/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com; rm /tmp/dash-to-panel.zip; cd; rm $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Panel.sh'"
+	echo "'$extension2' is not installed -- Click here to install it. | terminal=false bash='echo Downloading Dash to Dock... > $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Panel.sh; echo --- >> $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Panel.sh; chmod -x $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Panel.sh; if [ ! -d $HOME/.local/share/gnome-shell/extensions ]; then mkdir -p $HOME/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com; fi; wget https://extensions.gnome.org/extension-data/dash-to-panel%40jderose9.github.com.v12.shell-extension.zip -P /tmp/; unzip /tmp/dash-to-panel* -d $HOME/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com; rm /tmp/dash-to-panel*; rm $HOME/.config/argos/G_D-t-D_Downloading_Dash_to_Panel.sh'"
 fi
 
 if [[ -z $output ]]
 then
 	return 0
 else
+	echo "Please note, you may have to re-login or 'Alt + F2, followed by r' for these changes to take effect."
 	return 1
 fi
 
